@@ -1,0 +1,713 @@
+﻿```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kamran Creative Agency</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0b0b14;
+            color: white;
+        }
+
+        /* NAVBAR */
+        nav {
+            width: 100%;
+            padding: 18px 7%;
+            background: #11111d;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.4);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #00e5ff;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00e5ff;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            background:
+                radial-gradient(circle at top left, #182848, transparent 40%),
+                radial-gradient(circle at bottom right, #4b134f, transparent 40%),
+                #0b0b14;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #00e5ff, #ff00cc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #ddd;
+            line-height: 1.7;
+            margin-bottom: 35px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 8px;
+            border-radius: 30px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            background: linear-gradient(90deg, #00bcd4, #8e2de2);
+            transition: 0.3s;
+            box-shadow: 0 5px 20px rgba(0,188,212,0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 25px rgba(142,45,226,0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #00e5ff;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 80px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 45px;
+            color: #00e5ff;
+        }
+
+        /* SERVICES */
+        .services {
+            background: #10101b;
+        }
+
+        .service-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            background: #181827;
+            padding: 35px 25px;
+            text-align: center;
+            border-radius: 15px;
+            border: 1px solid #292940;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: #00e5ff;
+            box-shadow: 0 10px 30px rgba(0,229,255,0.12);
+        }
+
+        .service-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 23px;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .service-card p {
+            color: #bbb;
+            line-height: 1.6;
+        }
+
+        /* ABOUT */
+        .about {
+            text-align: center;
+        }
+
+        .about p {
+            max-width: 800px;
+            margin: auto;
+            color: #ccc;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* CONTACT */
+        .contact {
+            background: #10101b;
+            text-align: center;
+        }
+
+        .email-box {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 600px;
+            background: #181827;
+            border-radius: 12px;
+            font-size: 20px;
+            color: #00e5ff;
+        }
+
+        /* SOCIAL MEDIA */
+        .socials {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social {
+            padding: 14px 22px;
+            border-radius: 30px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .social:hover {
+            transform: translateY(-4px);
+            opacity: 0.85;
+        }
+
+        .tiktok {
+            background: #111;
+            border: 1px solid #fff;
+        }
+
+        .facebook {
+            background: #1877f2;
+        }
+
+        .instagram {
+            background: linear-gradient(45deg, #feda75, #d62976, #4f5bd5);
+        }
+
+        .youtube {
+            background: #ff0000;
+        }
+
+        /* ORDER FORM */
+        .order-section {
+            display: none;
+            background: #0b0b14;
+        }
+
+        .order-box {
+            max-width: 650px;
+            margin: auto;
+            background: #181827;
+            padding: 35px;
+            border-radius: 18px;
+            border: 1px solid #303047;
+        }
+
+        .order-box h2 {
+            text-align: center;
+            color: #00e5ff;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ddd;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #3a3a50;
+            border-radius: 8px;
+            background: #0e0e18;
+            color: white;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #00e5ff;
+        }
+
+        textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .close-btn {
+            background: #333344;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 30px;
+            text-align: center;
+            background: #07070d;
+            color: #aaa;
+        }
+
+        footer span {
+            color: #00e5ff;
+        }
+
+        /* MOBILE */
+        @media (max-width: 800px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .service-container {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">Kamran Creative Agency</div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h1>Kamran Creative Agency</h1>
+
+            <p>
+                Professional Graphic Designing, Logo Designing,
+                Social Media Designs, Video Editing and Creative
+                Digital Services.
+            </p>
+
+            <button class="btn" onclick="openOrder()">
+                🛒 Order Now
+            </button>
+
+            <a href="#services" class="btn btn-secondary">
+                Explore Services
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+
+        <h2 class="section-title">Our Services</h2>
+
+        <div class="service-container">
+
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>Logo Design</h3>
+                <p>
+                    Professional and unique logos for businesses,
+                    brands and social media.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🖼️</div>
+                <h3>Graphic Design</h3>
+                <p>
+                    Posters, banners, thumbnails, business cards
+                    and other creative designs.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Social Media Design</h3>
+                <p>
+                    Attractive posts, advertisements and promotional
+                    designs for social media.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🎬</div>
+                <h3>Video Editing</h3>
+                <p>
+                    Professional video editing for YouTube,
+                    TikTok, Instagram and Facebook.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">▶️</div>
+                <h3>YouTube Thumbnail</h3>
+                <p>
+                    Eye-catching thumbnails designed to improve
+                    clicks and engagement.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">✨</div>
+                <h3>AI Creative Services</h3>
+                <p>
+                    AI-powered images, videos and creative content
+                    for your business.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+
+        <h2 class="section-title">About Us</h2>
+
+        <p>
+            Welcome to Kamran Creative Agency.
+            We provide creative digital services for businesses,
+            brands, YouTubers, TikTok creators and social media
+            users. Our goal is to turn your ideas into attractive
+            and professional designs.
+        </p>
+
+        <br>
+
+        <button class="btn" onclick="openOrder()">
+            Start Your Order
+        </button>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+
+        <h2 class="section-title">Contact Us</h2>
+
+        <div class="email-box">
+            📧 kh1504565@gmail.com
+        </div>
+
+        <button class="btn" onclick="openOrder()">
+            📩 Send Order
+        </button>
+
+        <h3 style="margin-top:40px;">
+            Follow Us On Social Media
+        </h3>
+
+        <div class="socials">
+
+            <a class="social tiktok"
+               href="https://www.tiktok.com/@kamran_creative_agency"
+               target="_blank">
+                🎵 TikTok
+            </a>
+
+            <a class="social facebook"
+               href="https://www.facebook.com/profile.php?id=61590391423930"
+               target="_blank">
+                📘 Facebook
+            </a>
+
+            <a class="social instagram"
+               href="https://www.instagram.com/business_star55/"
+               target="_blank">
+                📸 Instagram
+            </a>
+
+            <a class="social youtube"
+               href="https://www.youtube.com/@business_king55"
+               target="_blank">
+                ▶️ YouTube
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ORDER FORM -->
+    <section class="order-section" id="order">
+
+        <div class="order-box">
+
+            <h2>🛒 Place Your Order</h2>
+
+            <form onsubmit="sendOrder(event)">
+
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your name"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label>Your Email</label>
+                    <input
+                        type="email"
+                        id="customerEmail"
+                        placeholder="Enter your email"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label>Select Service</label>
+
+                    <select id="service" required>
+
+                        <option value="">
+                            -- Select Service --
+                        </option>
+
+                        <option value="Logo Design">
+                            Logo Design
+                        </option>
+
+                        <option value="Graphic Design">
+                            Graphic Design
+                        </option>
+
+                        <option value="Social Media Design">
+                            Social Media Design
+                        </option>
+
+                        <option value="Video Editing">
+                            Video Editing
+                        </option>
+
+                        <option value="YouTube Thumbnail">
+                            YouTube Thumbnail
+                        </option>
+
+                        <option value="AI Creative Services">
+                            AI Creative Services
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Order Details</label>
+
+                    <textarea
+                        id="message"
+                        placeholder="Write your requirements here..."
+                        required></textarea>
+
+                </div>
+
+                <button class="btn" type="submit">
+                    📩 Place Order
+                </button>
+
+                <button
+                    class="btn close-btn"
+                    type="button"
+                    onclick="closeOrder()">
+                    ✖ Close
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 <span>Kamran Creative Agency</span>.
+            All Rights Reserved.
+        </p>
+
+        <p style="margin-top:10px;">
+            📧 kh1504565@gmail.com
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        function openOrder() {
+
+            document.getElementById("order").style.display = "block";
+
+            document.getElementById("order").scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+
+        function closeOrder() {
+
+            document.getElementById("order").style.display = "none";
+
+        }
+
+
+        function sendOrder(event) {
+
+            event.preventDefault();
+
+            let name =
+                document.getElementById("name").value;
+
+            let customerEmail =
+                document.getElementById("customerEmail").value;
+
+            let service =
+                document.getElementById("service").value;
+
+            let message =
+                document.getElementById("message").value;
+
+
+            let subject =
+                "New Order - " + service;
+
+
+            let body =
+                "NEW ORDER%0D%0A%0D%0A" +
+
+                "Customer Name: " +
+                encodeURIComponent(name) +
+                "%0D%0A" +
+
+                "Customer Email: " +
+                encodeURIComponent(customerEmail) +
+                "%0D%0A" +
+
+                "Service: " +
+                encodeURIComponent(service) +
+                "%0D%0A%0D%0A" +
+
+                "Order Details:%0D%0A" +
+                encodeURIComponent(message);
+
+
+            let mailtoLink =
+                "mailto:kh1504565@gmail.com" +
+                "?subject=" +
+                encodeURIComponent(subject) +
+                "&body=" +
+                body;
+
+
+            window.location.href = mailtoLink;
+
+        }
+
+    </script>
+
+</body>
+</html>
+```
