@@ -1,9 +1,7 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta name="google-site-verification" content="j9JI7_DuA2qaUplOrldTuuDNFThZ_2hhcA0rxLoQGq8" />
-```html
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -500,25 +498,29 @@
 
             <a class="social tiktok"
                href="https://www.tiktok.com/@kamran_creative_agency"
-               target="_blank">
+               target="_blank"
+               rel="noopener noreferrer">
                 🎵 TikTok
             </a>
 
             <a class="social facebook"
                href="https://www.facebook.com/profile.php?id=61590391423930"
-               target="_blank">
+               target="_blank"
+               rel="noopener noreferrer">
                 📘 Facebook
             </a>
 
             <a class="social instagram"
                href="https://www.instagram.com/business_star55/"
-               target="_blank">
+               target="_blank"
+               rel="noopener noreferrer">
                 📸 Instagram
             </a>
 
             <a class="social youtube"
                href="https://www.youtube.com/@business_king55"
-               target="_blank">
+               target="_blank"
+               rel="noopener noreferrer">
                 ▶️ YouTube
             </a>
 
@@ -534,30 +536,39 @@
 
             <h2>🛒 Place Your Order</h2>
 
-            <form onsubmit="sendOrder(event)">
+            <form action="https://formspree.io/f/xkjnrrej" method="POST">
 
                 <div class="form-group">
-                    <label>Your Name</label>
+                    <label for="name">Your Name</label>
+
                     <input
                         type="text"
                         id="name"
+                        name="name"
                         placeholder="Enter your name"
                         required>
                 </div>
 
+
                 <div class="form-group">
-                    <label>Your Email</label>
+                    <label for="customerEmail">Your Email</label>
+
                     <input
                         type="email"
                         id="customerEmail"
+                        name="email"
                         placeholder="Enter your email"
                         required>
                 </div>
 
-                <div class="form-group">
-                    <label>Select Service</label>
 
-                    <select id="service" required>
+                <div class="form-group">
+                    <label for="service">Select Service</label>
+
+                    <select
+                        id="service"
+                        name="service"
+                        required>
 
                         <option value="">
                             -- Select Service --
@@ -591,20 +602,32 @@
 
                 </div>
 
+
                 <div class="form-group">
 
-                    <label>Order Details</label>
+                    <label for="message">
+                        Order Details
+                    </label>
 
                     <textarea
                         id="message"
+                        name="message"
                         placeholder="Write your requirements here..."
                         required></textarea>
 
                 </div>
 
+
+                <input
+                    type="hidden"
+                    name="_subject"
+                    value="New Order - Kamran Creative Agency">
+
+
                 <button class="btn" type="submit">
                     📩 Place Order
                 </button>
+
 
                 <button
                     class="btn close-btn"
@@ -655,61 +678,7 @@
 
         }
 
-
-        function sendOrder(event) {
-
-            event.preventDefault();
-
-            let name =
-                document.getElementById("name").value;
-
-            let customerEmail =
-                document.getElementById("customerEmail").value;
-
-            let service =
-                document.getElementById("service").value;
-
-            let message =
-                document.getElementById("message").value;
-
-
-            let subject =
-                "New Order - " + service;
-
-
-            let body =
-                "NEW ORDER%0D%0A%0D%0A" +
-
-                "Customer Name: " +
-                encodeURIComponent(name) +
-                "%0D%0A" +
-
-                "Customer Email: " +
-                encodeURIComponent(customerEmail) +
-                "%0D%0A" +
-
-                "Service: " +
-                encodeURIComponent(service) +
-                "%0D%0A%0D%0A" +
-
-                "Order Details:%0D%0A" +
-                encodeURIComponent(message);
-
-
-            let mailtoLink =
-                "mailto:kh1504565@gmail.com" +
-                "?subject=" +
-                encodeURIComponent(subject) +
-                "&body=" +
-                body;
-
-
-            window.location.href = mailtoLink;
-
-        }
-
     </script>
 
 </body>
 </html>
-```
